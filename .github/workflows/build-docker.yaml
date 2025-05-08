@@ -11,7 +11,7 @@ jobs:
             - name: build image
               run: | 
                 docker build ./api -t dmitrybaranovsky/devops-qr-code-api:latest
-                docker build ./front-ent-nextjs/ -t dmitrybaranovsky/devops-qr-code-frontend:latest
+                docker build ./front-ent-nextjs -t dmitrybaranovsky/devops-qr-code-frontend:latest
             - name: push image to docker hub
               run: |
                  docker login -u dmitrybaranovsky -p ${{ secrets.DOCKER_HUB_TOKEN }}
