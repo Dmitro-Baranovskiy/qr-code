@@ -29,7 +29,7 @@ s3 = boto3.client(
     aws_access_key_id= os.getenv("AWS_ACCESS_KEY"),
     aws_secret_access_key= os.getenv("AWS_SECRET_KEY"))
 
-bucket_name = 'YOUR_BUCKET_NAME' # Add your bucket name here
+bucket_name = 'myqrcodebuck' # Add your bucket name here
 
 @app.post("/generate-qr/")
 async def generate_qr(url: str):
@@ -51,6 +51,7 @@ async def generate_qr(url: str):
     img_byte_arr.seek(0)
 
     # Generate file name for S3
+    # TODO: translate url to b64
     file_name = f"qr_codes/{url.split('//')[-1]}.png"
 
     try:
